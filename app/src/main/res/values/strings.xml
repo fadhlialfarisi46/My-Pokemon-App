@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Pokemon App</string>
+    <string name="retry">Retry</string>
+    <string name="icon_pokeball">icon pokeball</string>
+    <string name="something_wrong">Something wrong</string>
+    <string name="abilitites">Abilitites</string>
+    <string name="search_pokemon">search pokemon</string>
+    <string name="sort_asc">sort A-Z</string>
+    <string name="sort_desc">sort Z-A</string>
+</resources>
