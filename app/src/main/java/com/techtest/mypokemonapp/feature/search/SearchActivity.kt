@@ -45,13 +45,9 @@ class SearchActivity : AppCompatActivity() {
         val linearLayoutManager = LinearLayoutManager(this)
 
         listAdapter = PokemonAdapter()
-        try {
-            binding.rvPokemons.apply {
-                adapter = listAdapter
-                layoutManager = linearLayoutManager
-            }
-        } catch (e: NullPointerException) {
-            e.printStackTrace()
+        binding.rvPokemons.apply {
+            adapter = listAdapter
+            layoutManager = linearLayoutManager
         }
     }
 
@@ -65,13 +61,19 @@ class SearchActivity : AppCompatActivity() {
             }
             btnSort.setOnClickListener {
                 if (isAsc) {
-                    btnSort.setIconResource(R.drawable.ic_up)
+                    btnSort.apply {
+                        setIconResource(R.drawable.ic_up)
+                        text = getString(R.string.sort_desc)
+                    }
                     isAsc = false
                     lifecycleScope.launch {
                         viewModel.sortType.emit(SortType.DESC)
                     }
                 } else {
-                    btnSort.setIconResource(R.drawable.ic_down)
+                    btnSort.apply {
+                        btnSort.setIconResource(R.drawable.ic_down)
+                        text = getString(R.string.sort_asc)
+                    }
                     isAsc = true
                     lifecycleScope.launch {
                         viewModel.sortType.emit(SortType.ASC)
